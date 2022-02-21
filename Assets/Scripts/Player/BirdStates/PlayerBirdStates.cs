@@ -10,7 +10,7 @@ namespace Player.BirdStates
     {
         [SerializeField] private BirdStateBase[] _states;
 
-        private BirdStateBase _currentState;
+        [SerializeField] private BirdStateBase _currentState;
         private PlayerBird _playerBird;
 
         public void EnterState<T>()
@@ -20,6 +20,9 @@ namespace Player.BirdStates
             if (foundedStates.Count == 0)
                 throw new ArgumentException($"Can't find Bird State of Type {typeof(T).Name}");
 
+            if (_currentState != null)
+                _currentState.Exit(_playerBird);
+
             T foundedState = foundedStates.First();
             _currentState = foundedState as BirdStateBase;
             _currentState.Enter(_playerBird);
@@ -28,10 +31,6 @@ namespace Player.BirdStates
         private void Awake()
         {
             _playerBird = GetComponent<PlayerBird>();
-        }
-        private void Start()
-        {
-            EnterState<BirdStateAlive>();
         }
         private void Update()
         {

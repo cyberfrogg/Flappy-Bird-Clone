@@ -7,9 +7,12 @@ namespace Player.BirdStates
     {
         public override void Enter(PlayerBird bird)
         {
-            Debug.Log("Bird died");
+            bird.Die();
         }
+        public override void Exit(PlayerBird bird)
+        {
 
+        }
         public override void UpdateState()
         {
 

@@ -1,7 +1,7 @@
 ﻿using Zenject;
 using UnityEngine;
 
-namespace Level.Generation.Installers
+namespace Level.Generation.Factories.Installers
 {
     public class ChunkFactoryInstaller : MonoInstaller
     {

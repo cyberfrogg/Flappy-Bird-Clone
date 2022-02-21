@@ -12,12 +12,15 @@ namespace Player.BirdStates
         {
             _bird = bird;
         }
+        public override void Exit(PlayerBird bird)
+        {
 
+        }
         public override void UpdateState()
         {
             controlInput();
-            checkDeath();
         }
+
         private void controlInput()
         {
             if (Input.GetMouseButtonDown(0))
@@ -25,14 +28,10 @@ namespace Player.BirdStates
                 _bird.FlyUp();
             }
         }
-        private void checkDeath()
-        {
-            Bounds cameraBounds = Camera.main.GetCameraBounds(Camera.main.transform.localToWorldMatrix);
 
-            if (transform.position.y <= cameraBounds.min.y)
-            {
-                _bird.States.EnterState<BirdStateDead>();
-            }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            _bird.States.EnterState<BirdStateDead>();
         }
     }
 }

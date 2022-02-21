@@ -1,5 +1,5 @@
+using Level.Generation.Factories;
 using Player;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,7 +22,7 @@ namespace Level.Generation
         {
             _enviroment = GetComponent<LevelEnviroment>();
 
-            createNewChunk();
+            createNewChunk(true);
         }
 
         private void Update()
@@ -40,7 +40,11 @@ namespace Level.Generation
 
         private void createNewChunk()
         {
-            Chunk newChunk = _factory.CreateRandom();
+            createNewChunk(false);
+        }
+        private void createNewChunk(bool first)
+        {
+            Chunk newChunk = first ? _factory.CreateFirstChunk() : _factory.CreateRandom();
             newChunk.transform.SetParent(_enviroment.Container);
 
             newChunk.transform.position = _chunks.Count() != 0 ? _chunks.Last().EndMarker.position - newChunk.StartMarker.position : Vector3.zero;

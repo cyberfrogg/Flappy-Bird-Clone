@@ -106,6 +106,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabs:
   - {fileID: 9075467683129116857, guid: 3f58883b9eef4b249ad9542de7b62bfe, type: 3}
+  - {fileID: 6409170126542550822, guid: 27a97d6db4ee03a4f93d763baa4372eb, type: 3}
+  - {fileID: 5172252082770449998, guid: 4eed32e6551361c49980cbad7ce311e3, type: 3}
+  - {fileID: 2724441527901103555, guid: ac1f79029ecb0c741bf49cd80ed762ac, type: 3}
+  - {fileID: 6533972937309162485, guid: bb01da63bfbb0e2409f682f841468d36, type: 3}
+  - {fileID: 8320440286782337990, guid: 31e144b5a3d557c47bc9caedd3284ff3, type: 3}
+  _firstChunk: {fileID: 9075467683129116857, guid: 3f58883b9eef4b249ad9542de7b62bfe, type: 3}
 --- !u!1 &4099726416518062956
 GameObject:
   m_ObjectHideFlags: 0
