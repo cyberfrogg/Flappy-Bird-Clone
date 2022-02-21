@@ -11,5 +11,10 @@ namespace Level.Generation
 
         [SerializeField] private Transform _startMarker;
         [SerializeField] private Transform _endMarker;
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }
