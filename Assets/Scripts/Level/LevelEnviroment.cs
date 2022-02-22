@@ -2,7 +2,6 @@ using Level.Generation;
 using Pausing;
 using Player;
 using UnityEngine;
-using Zenject;
 
 namespace Level
 {
@@ -14,8 +13,8 @@ namespace Level
         [SerializeField] private Transform _levelContainer;
         [SerializeField] private float _movementSpeed = 1f;
 
-        [Inject] private PlayerBird _bird;
-        [Inject] private GamePause _pause;
+        private PlayerBird _bird => SceneContext.Instance.PlayerBird;
+        private GamePause _pause => SceneContext.Instance.GamePause;
         private bool _isMoving;
 
         public void StartLevelMovement()
@@ -35,7 +34,7 @@ namespace Level
             StartLevelMovement();
         }
 
-        private void Awake()
+        private void Start()
         {
             _bird.OnDeath += birdDied;
             _pause.Register(this);

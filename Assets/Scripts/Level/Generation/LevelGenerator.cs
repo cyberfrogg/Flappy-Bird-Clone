@@ -3,7 +3,6 @@ using Player;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Zenject;
 
 namespace Level.Generation
 {
@@ -13,8 +12,9 @@ namespace Level.Generation
         [SerializeField, Range(10, 40)] private float _newChunkDistance = 20;
         [SerializeField, Range(0, 40)] private float _destroyChunkDistance = 20;
 
-        [Inject] private ChunkFactory _factory;
-        [Inject] private PlayerBird _playerBird;
+        private ChunkFactory _factory => ProjectContext.Instance.ChunkFactory;
+        private PlayerBird _playerBird => SceneContext.Instance.PlayerBird;
+
         private LevelEnviroment _enviroment;
         private List<Chunk> _chunks = new List<Chunk>();
 

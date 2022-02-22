@@ -1,16 +1,13 @@
 using Pausing;
 using Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace UI.TopMenuScreen
 {
     public class TopMenuScreen : MonoBehaviour
     {
-        [Inject] private PlayerBird _playerBird;
-        [Inject] private GamePause _pause;
+        private PlayerBird _playerBird => SceneContext.Instance.PlayerBird;
+        private GamePause _pause => SceneContext.Instance.GamePause;
         private bool _isPaused = false;
 
         public void TogglePause()

@@ -13,8 +13,15 @@ public class ProjectContext : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
             return;
+        }
+        else
+        {
+            Instance = this;
+        }
 
         Instance = this;
         DontDestroyOnLoad(this);

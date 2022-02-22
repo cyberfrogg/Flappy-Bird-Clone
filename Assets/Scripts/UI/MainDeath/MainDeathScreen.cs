@@ -1,13 +1,12 @@
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace UI.MainDeathScreen
 {
     public class MainDeathScreen : MonoBehaviour
     {
-        [Inject] private PlayerBird _playerBird;
+        private PlayerBird _playerBird => SceneContext.Instance.PlayerBird;
 
         public void RestartGame()
         {

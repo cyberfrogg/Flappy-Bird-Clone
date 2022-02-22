@@ -1,12 +1,11 @@
 using Pausing;
 using UnityEngine;
-using Zenject;
 
 namespace UI.MainMenuScreen
 {
     public class MainMenuScreen : MonoBehaviour
     {
-        [Inject] private GamePause _pause;
+        private GamePause _pause => SceneContext.Instance.GamePause;
 
         private void Start()
         {

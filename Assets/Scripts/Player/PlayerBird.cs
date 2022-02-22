@@ -3,7 +3,6 @@ using UnityEngine;
 using CameraBehaviour.Extensions;
 using Player.BirdStates;
 using Pausing;
-using Zenject;
 
 namespace Player
 {
@@ -19,7 +18,7 @@ namespace Player
         [SerializeField, Range(0, 5f)] private float _spriteRotationModifier;
         [SerializeField] private Transform _sprite;
 
-        [Inject] private GamePause _gamePause;
+        private GamePause _gamePause => SceneContext.Instance.GamePause;
         private PlayerBirdStates _states;
         private Rigidbody2D _rigidbody;
         private Vector2 _lastFrozenVelocity;
